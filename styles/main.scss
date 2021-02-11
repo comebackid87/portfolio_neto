@@ -1,6 +1,7 @@
 @import './shared/fonts';
 @import './components/header';
 @import './index';
+@import './portfolios';
 
 html, body {
     font-family: 'Montserrat', 'Helvetica' !important;
@@ -13,8 +14,16 @@ html, body {
 }
 
 .base-page {
-    color: white;
-    padding-top: 150px;
+    background-color: #ecedee;
+    color: #000;
+    min-height: 100vh;
+    padding: 150px 0;
+
+    .page-header-title {
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
 }
 
 .absolute {
