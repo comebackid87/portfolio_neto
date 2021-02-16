@@ -3,15 +3,21 @@ import BasePage from '@/components/BasePage'
 import withAuth from '@/hoc/withAuth'
 import { Row, Col } from 'reactstrap'
 import PortfolioForm from '@/components/PortfolioForm'
+import { createPortfolio } from '@/actions/portfolios'
 
 const PortfolioNew = ({ user, loading: userLoading }) => {
+
+    const _createPortfolio = (data) => {
+        alert(JSON.stringify(data))
+        createPortfolio(data)
+    }
 
     return (
         <BaseLayout user={user} loading={userLoading}>
             <BasePage header="Create Portfolio">
                 <Row>
                     <Col md="8">
-                        <PortfolioForm />
+                        <PortfolioForm onSubmit={_createPortfolio} />
                     </Col>
                 </Row>
             </BasePage>
