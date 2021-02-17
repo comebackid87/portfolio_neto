@@ -1,7 +1,4 @@
-import  axios from 'axios'
+import axios from 'axios'
+import { useAPIHandler } from '@/actions'
 
-export function createPortfolio (data) {
-
-    return axios.post('/api/v1/portfolios')
-
-}
+export const useCreatePortfolio = () => useAPIHandler((data) => axios.post('/api/v1/portfolios', data))
