@@ -15,8 +15,10 @@ const PortfolioEdit = ({user}) => {
     const { data: initialData } = useGetPortfolio(router.query.id)
 
     const _updatePortfolio = async (data) => {
+    
         await updatePortfolio(router.query.id, data)
         toast.success('Portfolio has been updated successfully.', { autoClose: 2000})
+
     }
 
     return (
@@ -29,6 +31,12 @@ const PortfolioEdit = ({user}) => {
                                 onSubmit={_updatePortfolio}
                                 initialData={initialData}
                             />
+                        }
+                        {
+                            error && 
+                                <div className="alert alert-danger mt-2">
+                                    {error}
+                                </div>
                         }
                     </Col>
                 </Row>
