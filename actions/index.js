@@ -25,9 +25,11 @@ export function useAPIHandler(apiCall) {
         try {
             const json = await apiCall(...data)
             setReqState({error: null, data: json.data, loading: false})
+            return json.data
         } catch (err) {
             const message = (err.response && err.response.data) || 'Technical fault: Please try again.'
             setReqState({error: message, data: null, loading: false})
+            return Promise.reject(message)
         }
     }
 
