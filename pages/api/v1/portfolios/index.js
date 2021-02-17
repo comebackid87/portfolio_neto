@@ -1,4 +1,3 @@
-
 import PortfolioApi from '@/lib/api/portfolios'
 import auth0 from '@/utils/auth0'
 
