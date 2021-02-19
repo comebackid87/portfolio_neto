@@ -10,7 +10,7 @@ const ROLES = [
   'Mobile Applications Developer', 
   'Ethical Hacker', 
   'Network Engineer', 
-  'Digital Marketing', 
+  'Digital Marketer', 
   'Cyber Security Associate', 
   'Game Developer']
 
