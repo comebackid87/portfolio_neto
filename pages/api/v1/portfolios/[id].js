@@ -11,7 +11,7 @@ export default async function handlePortfolio(req, res) {
     if (req.method === 'PATCH') {
         try {
             const { accessToken } = await auth0.getSession(req)
-            const json = await new PortfolioApi(accessToken).updatePortfolio(req.query.id, req.body)
+            const json = await new PortfolioApi(accessToken).update(req.query.id, req.body)
             return res.json(json.data)
         } catch (err) {
             return res.status(err.status || 422).json(err.response.data)
@@ -20,7 +20,7 @@ export default async function handlePortfolio(req, res) {
 
     if (req.method === 'DELETE') {
         const { accessToken } = await auth0.getSession(req)
-        const json = await new PortfolioApi(accessToken).deletePortfolio(req.query.id)
+        const json = await new PortfolioApi(accessToken).delete(req.query.id)
         return res.json(json.data)
     }
 }
