@@ -7,32 +7,26 @@ export default class PortButtonDropdown extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-        dropdownOpen: false
+            dropdownOpen: false
         };
     }
 
     toggle() {
         this.setState({
-        dropdownOpen: !this.state.dropdownOpen
+            dropdownOpen: !this.state.dropdownOpen
         });
-    }
-
-    handlers() {
-        onClick: () => {
-
-        }
     }
 
     renderMenu(items) {
         return (
-        <DropdownMenu>
-            {
-            items.map((item) => (
-                <DropdownItem key={item.key} onClick={() => {}} {...item.handlers}>{item.text}</DropdownItem>
-                )
-            )
-            }
-        </DropdownMenu>
+            <DropdownMenu>
+                {
+                    items.map((item) => (
+                        <DropdownItem key={item.key} onClick={() => {}} {...item.handlers}>{item.text}</DropdownItem>
+                        )
+                    )
+                }
+            </DropdownMenu>
         )
     }
 
@@ -40,11 +34,11 @@ export default class PortButtonDropdown extends React.Component {
         const { items } = this.props;
 
         return (
-        <ButtonDropdown className="port-dropdown" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle caret size="sm">
-            </DropdownToggle>
-            {this.renderMenu(items)}
-        </ButtonDropdown>
-        );
+            <ButtonDropdown className="port-dropdown" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle caret size="sm">
+                </DropdownToggle>
+                {this.renderMenu(items)}
+            </ButtonDropdown>
+        )
     }
 }

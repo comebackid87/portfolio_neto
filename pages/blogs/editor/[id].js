@@ -25,7 +25,7 @@ const BlogUpdateEditor = ({user, loading}) => {
         <BaseLayout user={user} loading={loading}>
             <BasePage>
                 { data && data.content &&
-                    <Editor header="Update your blog" initialContent={data} onSave={_updateBlog} loading={isBlogSaving}/>
+                    <Editor header="Update your blog" initialContent={data.content} onSave={_updateBlog} loading={isBlogSaving}/>
                 }
             </BasePage>
         </BaseLayout>
