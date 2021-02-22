@@ -1,7 +1,7 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
 import withAuth from 'hoc/withAuth';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import Link from 'next/link'
 import Masthead from 'components/shared/Masthead';
 import PortDropdown from 'components/shared/Dropdown'
@@ -19,13 +19,13 @@ const Dashboard = ({user, loading}) => {
             .catch(() => toast.error('Technical fault: Please try again.'))
     }
 
-    const createBlogOption = (blogStatus) => {
+    const createOption = (blogStatus) => {
         return blogStatus === 'draft' ? { view: 'Publish Story', value: 'published'} : { view: 'Make a Draft', value: 'draft' }
     }               
 
-    const createBlogsOptions = (blog) => {
+    const createOptions = (blog) => {
 
-        const option = createBlogOption(blog.status)
+        const option = createOption(blog.status)
 
         return [
             {   key: `${blog._id}-published`, 
@@ -35,7 +35,7 @@ const Dashboard = ({user, loading}) => {
 
             {   key: `${blog._id}-delete`, 
                 text: 'Delete', 
-                handlers: { onClick: () => {alert(`Clicking Delete: ${blog._id}`)}}
+                handlers: { onClick: () => changeBlogStatus(blog._id, 'deleted')}
             }
         ]
     }
@@ -47,7 +47,7 @@ const Dashboard = ({user, loading}) => {
                         <Link href="/blogs/editor/[id]" as={`/blogs/editor/${blog._id}`}>
                             <a>{blog.title}</a>
                         </Link>
-                        <PortDropdown items={createBlogsOptions(blog)} />
+                        <PortDropdown items={createOptions(blog)} />
                     </li>
                 )
             }
@@ -56,7 +56,15 @@ const Dashboard = ({user, loading}) => {
 
     return (
         <BaseLayout navClass="transparent" user={user} loading={loading}>
-            <Masthead imagePath="/images/home_bg.jpg" />
+            <Masthead imagePath="/images/home_bg.jpg">
+                <h1>Blogs Dashboard</h1>
+                <span className="subheading">
+                    Let's start a nice blog today{' '}
+                        <Link href="/blogs/editor">
+                            <Button color="primary">Create a new blog</Button>
+                        </Link>
+                </span>
+            </Masthead>
             <BasePage className="blog-user-page">
                 <Row>
                     <Col md="6" className="mx-auto text-center">

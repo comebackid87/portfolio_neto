@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 
 const BlogEditor = ({user, loading}) => {
 
-    const router =  useRouter()
+    const router = useRouter()
     const [createBlog, { data: createdBlog, error, loading: blogLoading }] = useCreateBlog()
 
     const saveBlog = async data => {
@@ -17,7 +17,7 @@ const BlogEditor = ({user, loading}) => {
     }
 
     if (error) {
-        toast.error(error)
+        toast.error(error.message)
     }
 
     return (
