@@ -10,7 +10,7 @@ const BlogUpdateEditor = ({user, loading}) => {
 
     const router = useRouter()
     const { data } = useGetBlog(router.query.id)
-    const [updateBlog, { error, loading: isBlogSaving}] = useUpdateBlog()
+    const [updateBlog, {data: updatedBlog,  error, loading: isBlogSaving}] = useUpdateBlog()
 
     const _updateBlog = async data => {
         await updateBlog(router.query.id, data)
@@ -25,7 +25,12 @@ const BlogUpdateEditor = ({user, loading}) => {
         <BaseLayout user={user} loading={loading}>
             <BasePage>
                 { data && data.content &&
-                    <Editor header="Update your blog" initialContent={data.content} onSave={_updateBlog} loading={isBlogSaving} />
+                    <Editor 
+                        header="Update your blog" 
+                        initialContent={data.content} 
+                        onSave={_updateBlog} 
+                        loading={isBlogSaving} 
+                    />
                 }
             </BasePage>
         </BaseLayout>

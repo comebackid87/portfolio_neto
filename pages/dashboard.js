@@ -59,7 +59,7 @@ const Dashboard = ({user, loading}) => {
             <Masthead imagePath="/images/home_bg.jpg">
                 <h1>Blogs Dashboard</h1>
                 <span className="subheading">
-                    Let's start a nice blog today{' '}
+                    Add a new blog{' '}
                         <Link href="/blogs/editor">
                             <Button color="primary">Create a new blog</Button>
                         </Link>
