@@ -12,6 +12,7 @@ import {
     DropdownItem
 } from 'reactstrap';
 import Link from 'next/link';
+import ReactResizeDetector from 'react-resize-detector'
 
 const BsNavLink = props => {
   const {title, href, className=''} = props
@@ -73,8 +74,9 @@ const Header = ({user, loading, className}) => {
   const toggle = () => setIsOpen(!isOpen)
 
   return (
-    <div>
-      <Navbar className={`port-navbar port-default absolute ${className}`} dark expand="md">
+    <ReactResizeDetector>
+      { ({ handleWidth }) =>
+        <Navbar className={`port-navbar port-default absolute ${className} ${width < 768 && isOpen ? 'is-open' : 'is-close'}`} dark expand="md">
         <BsNavBrand />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -97,28 +99,29 @@ const Header = ({user, loading, className}) => {
           </Nav>
           <Nav navbar>
             { !loading && 
-                <>
-                  {
-                    user && 
-                    <>
-                      { isAuthorized(user, 'admin') && <AdminMenu /> }
-                      <NavItem className="port-navbar-item">
-                        <LogoutLink />
-                      </NavItem>
-                    </>
-                  }
-                  {
-                    !user &&
+              <>
+                {
+                  user && 
+                  <>
+                    { isAuthorized(user, 'admin') && <AdminMenu /> }
                     <NavItem className="port-navbar-item">
-                      <LoginLink />
+                      <LogoutLink />
                     </NavItem>
-                  }
-                </>
+                  </>
+                }
+                {
+                  !user &&
+                  <NavItem className="port-navbar-item">
+                    <LoginLink />
+                  </NavItem>
+                }
+              </>
             }
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      }
+    </ReactResizeDetector>
   )
 }
 

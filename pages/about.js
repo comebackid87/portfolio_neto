@@ -40,7 +40,7 @@ const About = () => {
                             I am a Harvard University Computer Science graduate with several years of experience working with a wide range of technologies to build full stack applications software and my projects range from C# development for large-scale, corporate business applications to smaller-scale, modern mobile and web applications.
                             </p>
                             <p>
-                            I have gained several certifications in Web Development, Games Development, Android/iOS Development, Networking, Search Engine Optimization, Ethical Hacking, Data Science, Machine Learning and Cyber Security.
+                            I have gained several certifications in Web Development, Games Development, Android/iOS Development, Networking, Search Engine Optimization, Ethical Hacking, Data Science, Machine Learning, Artificial Intelligence, Computer Vision, Robotics, iOT and Cyber Security.
                             </p>
                             <p>
                             Throughout my career, I have acquired advanced technical knowledge and the ability to explain programming topics clearly and in detail to a broad audience.
