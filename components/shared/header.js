@@ -13,13 +13,14 @@ import {
 } from 'reactstrap';
 import Link from 'next/link';
 import ReactResizeDetector from 'react-resize-detector'
+import ActiveLink from 'components/shared/ActiveLink'
 
 const BsNavLink = props => {
   const {title, href, className=''} = props
   return (
-    <Link href={href}>
+    <ActiveLink activeClassName="active" href={href}>
       <a className={`nav-link port-navbar-link ${className}`}>{title}</a>
-    </Link>
+    </ActiveLink>
   )
 }
 
@@ -74,8 +75,8 @@ const Header = ({user, loading, className}) => {
   const toggle = () => setIsOpen(!isOpen)
 
   return (
-    <ReactResizeDetector>
-      { ({ handleWidth }) =>
+    <ReactResizeDetector handleWidth>
+      { ({ width }) =>
         <Navbar className={`port-navbar port-default absolute ${className} ${width < 768 && isOpen ? 'is-open' : 'is-close'}`} dark expand="md">
         <BsNavBrand />
         <NavbarToggler onClick={toggle} />

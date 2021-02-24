@@ -1,6 +1,7 @@
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage'
 import { useGetUser } from '@/actions/user'
+import { Row, Col } from 'reactstrap'
 
 const CV = () => {
 
@@ -9,7 +10,11 @@ const CV = () => {
     return (
         <BaseLayout user={data} loading={loading}>
             <BasePage>
-                <h1>CV</h1>
+                <Row>
+                    <Col md={{ size: 8, offset: 2 }}>
+                        <iframe  style={{ width: '100%', height: '800px' }} src="/portfolio_neto.pdf" />
+                    </Col>
+                </Row>
             </BasePage>
         </BaseLayout>
     )
