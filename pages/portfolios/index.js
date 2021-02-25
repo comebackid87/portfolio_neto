@@ -29,7 +29,7 @@ const Portfolios = ({portfolios: initialPortfolios}) => {
 
     return (
         <BaseLayout user={dataUser} loading={loadingUser}>
-            <BasePage header="Portfolios" className="portfolio-page">
+            <BasePage title="Latest Portfolios - Samm Neto" header="Portfolios" className="portfolio-page">
                 <Row>
                     { portfolios.map(portfolio =>
                         <Col key={portfolio._id} onClick={() => { router.push('/portfolios/[id]', `/portfolios/${portfolio._id}`) }} md="4">

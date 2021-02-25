@@ -38,3 +38,14 @@ html, body {
     color: white;
     letter-spacing: 1.4px;
 }
+
+.avatar-box {
+    img {
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}

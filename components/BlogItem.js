@@ -15,9 +15,9 @@ const BlogItem = ({blog}) =>
                 </h3>
             </a>
             </Link>
-            <p className="post-meta">Posted by
-            <a href="#"> Filip Jerga </a>
-            - {moment(blog.createdAt).format('LLLL')}
+            <p className="post-meta">Posted by &nbsp;
+            <a href="#">{blog.author.name}</a> &nbsp;
+            - &nbsp; {moment(blog.createdAt).format('LLLL')}
             </p>
         </div>
     </div>

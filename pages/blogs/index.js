@@ -17,6 +17,7 @@ const Blogs = ({blogs}) => {
                 <span className="subheading">Software Engineering</span>
             </Masthead>
             <BasePage
+                title="Latest Blogs - Samm Neto"
                 className="blog-body">
                 <Row>
                     {
@@ -35,9 +36,10 @@ const Blogs = ({blogs}) => {
 
 export async function getStaticProps() {
 
-    const json = await new BlogApi().getAll()
+    const { data } = await new BlogApi().getAll()
+    const blogs = data.map(item => ({ ...item.blog, author: item.author }))
     return { 
-        props: {blogs: json.data}, 
+        props: {blogs}, 
         revalidate: 60
     }
 }
