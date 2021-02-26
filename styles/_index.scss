@@ -6,6 +6,7 @@
     transition: 1s;
     transform-style: preserve-3d;
     position: relative;
+    height: 100%;
 }
 
 .flipper.isFlipping {
@@ -17,6 +18,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .front {
@@ -48,7 +51,8 @@
 }
 
 .hero-section {
-        height: 422px;
+        height: 530px;
+        width: 400px;
         margin-bottom: 30px;
         h2 {
             color: white;
@@ -63,9 +67,9 @@
 
         &-content {
             position: absolute;
-            bottom: 20px;
-            width: 360px;
-            left: 6%;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
             z-index: 1;
 
         &-intro {
@@ -75,14 +79,25 @@
 }
 
 .image {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-1 {
+    background-image: url('/images/section-1.jpg');
+}
+
+.image-2 {
+    background-image: url('/images/section-2.jpg');
 }
 
 .hero-welcome-text > h1 {
     color: white;
     text-transform: uppercase;
     font-size: 27px;
+    font-weight: 300;
     margin-top: 80px;
 }
 
@@ -114,11 +129,7 @@
 
 @media (max-width: 991px) {
     .hero-section {
-        width: 341px;
-        
-        &-content {
-            width: 341px;
-        }
+        width: 400px;
     }
 
     .hero-welcome-text > h1 {

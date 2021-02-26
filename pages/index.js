@@ -46,26 +46,29 @@ const Index = () => {
                 <div className="hero-section">
                   <div className={`flipper ${isFlipping ? 'isFlipping' : ''}`}>
                     <div className="front">
-                      <div className="hero-section-content">
-                        <h2> Full Stack Developer &amp; Software Engineer </h2>
-                        <div className="hero-section-content-intro">
-                          Take a look at my portfolio and employment history.
+                      <div className="image image-1">
+                        <div className="hero-section-content">
+                          <h2> Full Stack Developer &amp; Software Engineer </h2>
+                          <div className="hero-section-content-intro">
+                            Take a look at my portfolio and employment history.
+                          </div>
                         </div>
                       </div>
-                      <img className="image" src="/images/section-1.png"/>
+                      
                       <div className="shadow-custom">
                         <div className="shadow-inner"> </div>
                       </div>
                     </div>
 
                     <div className="back">
-                      <div className="hero-section-content">
-                        <h2> Full Stack Developer &amp; Software Engineer </h2>
-                        <div className="hero-section-content-intro">
-                          Take a look at my portfolio and employment history.
+                      <div className="image image-2">
+                        <div className="hero-section-content">
+                          <h2> Full Stack Developer &amp; Software Engineer </h2>
+                          <div className="hero-section-content-intro">
+                            Ready to tackle a project of any type.
+                          </div>
                         </div>
                       </div>
-                      <img className="image" src="/images/section-2.png"/>
                       <div className="shadow-custom shadow-custom-orange">
                         <div className="shadow-inner"> </div>
                       </div>
